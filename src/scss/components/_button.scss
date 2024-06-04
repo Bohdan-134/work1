@@ -1,0 +1,73 @@
+@import '../base/variables';
+@import '../base/animation';
+
+.btn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: $text-color;
+    transition: .3s;
+
+    &.type1 {
+        padding: 20px 10px;
+        background-color: $primary-color;
+        border-radius: $border-radius;
+
+        &:focus {
+            background-color: #1c9b8e;
+        }
+    }
+
+    &.type-link {
+        max-width: fit-content;
+        height: auto;
+        color: #E5E5E5;
+
+        &:focus {
+            color: $text-color;
+        }
+
+    }
+
+}
+
+.scroll-down-btn {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: none;
+    @include flexbox(row, center, center);
+    animation: scroll-to-bottom-animation 1.5s infinite;
+
+    svg {
+        width: 14px;
+        height: 7.5px;
+        fill: $text-color;
+    }
+
+}
+
+.mobile-menu-btn {
+    background: transparent;
+    border: none;
+
+    svg {
+        width: 16px;
+        height: 12px;
+        fill: $text-color;
+    }
+
+    &:focus,
+    &:active {
+
+        svg {
+            fill: $primary-color;
+        }
+
+    }
+
+}

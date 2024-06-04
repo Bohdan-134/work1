@@ -1,0 +1,102 @@
+.benefits-section {
+    padding: 14vh 0 16vh 0;
+
+    .container,
+    .content {
+        height: 100%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-part {
+
+        .title,
+        .text {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: .7s;
+        }
+
+        .title {
+            transition-delay: 0.5s;
+        }
+
+        .text {
+            transition-delay: 0.9s;
+        }
+
+    }
+
+    .middle-part {
+        margin: 2vh 0 5vh 0;
+        flex: 1;
+    }
+
+    $initial-delay: 1.3s;
+    $delay-increment: 0.4s;
+
+    .benefits-list {
+        list-style-type: none;
+        @include flexbox(row, space-between, flex-start);
+        flex-wrap: wrap;
+        gap: 40px 30px;
+
+        li {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: .7s;
+            width: calc(50% - 30px);
+
+            @for $i from 1 through 5 {
+                &:nth-child(#{$i}) {
+                  transition-delay: $initial-delay + ($i - 1) * $delay-increment;
+                }
+            }
+
+            .title {
+                margin: 0 0 0.5vh 0;
+            }
+        }
+
+    }
+
+    .btn-container {
+        max-width: 200px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: .7s;
+        transition-delay: 3.5s;
+    }
+
+    &.active {
+
+        .top-part {
+
+            .title,
+            .text {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+
+        .benefits-list {
+
+            li {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+
+        .btn-container {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+}
